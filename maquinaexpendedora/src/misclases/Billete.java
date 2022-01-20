@@ -28,6 +28,7 @@ public class Billete {
 		this.lineaDeAutobus = lineaDeAutobus;
 	}
 
+	//Con este método guardamos los datos del billete en la Base de Datos.
 	public static boolean insertarBillete(Billete billete) {
 		boolean resultado = BilleteBD.insertar(billete);
 		return resultado;

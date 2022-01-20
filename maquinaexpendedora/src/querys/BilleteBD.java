@@ -11,13 +11,13 @@ import misclases.Billete;
 public class BilleteBD extends Conexion {
 
 	public static boolean insertar(Billete billete) {
-		// llamamos al metodo para abrir la conexion
+		// Llamamos al metodo para abrir la conexion
 		Connection conn = abrirConexion();
-		// vamos a utilizar solo statemente por que vamos a enviarle una instruccion
+		// Vamos a utilizar solo statemente por que vamos a enviarle una instruccion
 		Statement instruccion = null;
 
 		try {
-			// es la forma de crear objeto de Statement es decir se hace sobre la conexion
+			// Es la forma de crear objeto de Statement, es decir se hace sobre la conexion
 			instruccion = conn.createStatement();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			instruccion.executeUpdate(

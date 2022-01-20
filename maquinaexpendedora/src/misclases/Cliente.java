@@ -8,7 +8,7 @@ public class Cliente {
 	private String nombre;
 	private String apellido;
 	private String contrasena;
-	//private ArrayList<Billete> listaBilletes;
+	
 
 	public Cliente() {
 
@@ -21,19 +21,20 @@ public class Cliente {
 		this.contrasena = contrasena;
 	}
 
-	// metodos de la clase cliente
+	//Este método añade el cliente nuevo 
 	public static boolean insertarCliente(Cliente cliente) {
 		boolean resultado = ClienteBD.insertar(cliente);
 		return resultado;
 	}
 	
+	//Método para hacer el login del cliente ya resgistrado
 	public static Cliente loguearCliente(String dniNie, String contrasena) {
 		Cliente cliente = ClienteBD.loguearCliente(dniNie, contrasena);
 		return cliente;
 	}
-	 //aqui vamos validar si el formato es correcto
+	 //Aqui vamos validar si el formato es correcto
 	public static boolean validarDNINIE(String dni) {
-		//con el metodo matches nos obliga a que cumplemos el regex un exprecion regular
+		//Con el metodo matches nos obliga a que cumplemos el regex un exprecion regular
 		//^ el inicio obligo a que sea de 0 a 9 y con las {} pongo el numero de repeticiones del 8 que son los numeros $ final y el
 		boolean dniCorrecto = dni.matches("^[0-9]{8}[A-Z a-z]$");
 		boolean nieCorrecto = dni.matches("^[XYZ xyz]\\d{7,8}[A-Z a-z]$");

@@ -5,6 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import misclases.Cliente;
+import misclases.LineaDeAutobus;
+import misclases.Parada;
 
 public class Conexion {
 
@@ -63,4 +69,8 @@ public class Conexion {
 
 	}
 
+//}
+	
+	
+	
 }

@@ -12,6 +12,7 @@ import misclases.LineaDeAutobus;
 
 public class LineaDeAutobusBD extends Conexion {
 
+	//De esta manera obtenemos los datos de línea de la base de datos
 	public static ArrayList<LineaDeAutobus> obtenerLineasDeAutobus() {
 
 		Connection conn = abrirConexion();
@@ -42,6 +43,7 @@ public class LineaDeAutobusBD extends Conexion {
 
 	}
 
+	//Método para obtener los datos de horario desde la base de datos.
 	public static LineaDeAutobus obtenerHoarioLineaDeAutobus(LineaDeAutobus lineaAutobus, String horaInicioFin) {
 		Connection conn = abrirConexion();
 		Statement instruccion = null;

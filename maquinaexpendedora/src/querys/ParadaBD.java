@@ -12,6 +12,7 @@ import misclases.Parada;
 
 public class ParadaBD extends Conexion {
 
+	//método para obtener las paradas desde la base de datos.
 	public static ArrayList<Parada> obtenerParadas(LineaDeAutobus lineaAutobus) {
 
 		Connection conn = abrirConexion();

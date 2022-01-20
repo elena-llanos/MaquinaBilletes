@@ -23,7 +23,7 @@ public class Parada {
 		this.lineaDeAutobus = lineaDeAutobus;
 	}
 	
-	//aqui vamos a obtener la lista de las paradas
+	//Con este método obtenemos la lista de paradas.
 
 	public static ArrayList<Parada> obtenerParadas(LineaDeAutobus lineaAutobus) {
 		ArrayList<Parada> listaParadas = ParadaBD.obtenerParadas(lineaAutobus);

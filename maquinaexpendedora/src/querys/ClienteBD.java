@@ -3,59 +3,36 @@ package querys;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import conexionBD.Conexion;
 import misclases.Cliente;
 
 public class ClienteBD extends Conexion {
-
-//	public static ArrayList<Cliente> obtenerAlumnos() {
-//		// llamamos al metodo abrir conexion
-//		Connection conn = abrirConexion();
-//		Statement instruccion = null;
-//		ResultSet resultado = null;
-//
-//		try {
-//
-//			instruccion = conn.createStatement();
-//			resultado = instruccion.executeQuery("SELECT * FROM cliente");
-//
-//			ArrayList<Cliente> clientes = new ArrayList<>();
-//
-//			while (resultado.next()) {
-//				Cliente cliente = new Cliente();
-//				cliente.setCodCliente(resultado.getInt("cod_cliente"));
-//				cliente.setDniNie(resultado.getString("dni_nie"));
-//				cliente.setNombre(resultado.getString("nombre"));
-//				cliente.setApellido(resultado.getString("apellido"));
-//				cliente.setContrasena(resultado.getString("contrasena"));
-//
-//				clientes.add(cliente);
-//			}
-//			return clientes;
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			return null;
-//		} finally {
-//			cerrarConexion(conn, instruccion, resultado);
-//		}
-//
-//	}
-
+	
+	
+	//Con este método hacemos el registro del cliente contra la base de datos.
 	public static boolean insertar(Cliente cliente) {
-		// llamamos al metodo para abrir la conexion
+		// Llamamos al metodo para abrir la conexion
 		Connection conn = abrirConexion();
-		// vamos a utilizar solo statemente por que vamos a enviarle una instruccion
+		// Vamos a utilizar solo statemente por que vamos a enviarle una instruccion
 		Statement instruccion = null;
 
 		try {
-			// es la forma de crear objeto de Statement es decir se hace sobre la conexion
+			// Es la forma de crear objeto de Statement, es decir se hace sobre la conexion
 			instruccion = conn.createStatement();
 			instruccion.executeUpdate("INSERT INTO cliente(dni_nie, nombre, apellido, contrasena) VALUES('"
 					+ cliente.getDniNie() + "','" + cliente.getNombre() + "','" + cliente.getApellido() + "','"
 					+ cliente.getContrasena() + "')");
 			return true;
+		}
+			catch (SQLIntegrityConstraintViolationException s) {
+				System.out.println("\t\r Usuario registrado, elige la Opción 2 para comprar tu billete.");
+				return false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -64,7 +41,8 @@ public class ClienteBD extends Conexion {
 		}
 
 	}
-
+	
+	//Con este método hacemos el login del cliente contra la base de datos
 	public static Cliente loguearCliente(String dniNie, String contrasena) {
 		Cliente cliente = null;
 		Connection conn = abrirConexion();
