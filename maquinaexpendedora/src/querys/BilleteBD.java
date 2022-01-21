@@ -13,7 +13,7 @@ public class BilleteBD extends Conexion {
 	public static boolean insertar(Billete billete) {
 		// Llamamos al metodo para abrir la conexion
 		Connection conn = abrirConexion();
-		// Vamos a utilizar solo statemente por que vamos a enviarle una instruccion
+		// Vamos a utilizar solo statement por que vamos a enviarle una instruccion
 		Statement instruccion = null;
 
 		try {

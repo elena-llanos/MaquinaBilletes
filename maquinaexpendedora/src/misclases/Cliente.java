@@ -34,7 +34,7 @@ public class Cliente {
 	}
 	 //Aqui vamos validar si el formato es correcto
 	public static boolean validarDNINIE(String dni) {
-		//Con el metodo matches nos obliga a que cumplemos el regex un exprecion regular
+		//Con el metodo matches nos obliga a que cumplemos el regex un expresion regular
 		//^ el inicio obligo a que sea de 0 a 9 y con las {} pongo el numero de repeticiones del 8 que son los numeros $ final y el
 		boolean dniCorrecto = dni.matches("^[0-9]{8}[A-Z a-z]$");
 		boolean nieCorrecto = dni.matches("^[XYZ xyz]\\d{7,8}[A-Z a-z]$");
